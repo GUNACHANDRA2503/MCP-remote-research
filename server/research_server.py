@@ -217,4 +217,7 @@ def get_search_prompt(topic:str, num_papers:int = 5) -> str:
     Please present both detailed information about each paper and a high-level synthesis of the research landscape in {topic}."""
 
 if __name__ == "__main__":
-    mcp.run(transport = "sse")
+    import os
+    port = int(os.getenv("PORT", 8000))
+    host = os.getenv("HOST", "0.0.0.0")
+    mcp.run(transport = "sse", host=host, port=port)

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: mcp-research-server
+    runtime: python
+    pythonVersion: 3.11
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server/research_server.py
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 8000
+    maxInstanceCount: 1
+    numInstances: 1
