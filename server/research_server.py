@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO, stream=sys.stderr)
 
 mcp = FastMCP("research_server")
 
-app = mcp.streamable_http_app(allowed_hosts=["*"])
+
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> str:
     """
@@ -233,6 +233,7 @@ def get_search_prompt(topic:str, num_papers:int = 5) -> str:
     
     Please present both detailed information about each paper and a high-level synthesis of the research landscape in {topic}."""
 
+app = mcp.sse_app()
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8001))
     host = os.getenv("HOST", "0.0.0.0")
