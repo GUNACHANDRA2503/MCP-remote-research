@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO, stream=sys.stderr)
 
 mcp = FastMCP("research_server")
 
-app = mcp.streamable_http_app()
+app = mcp.streamable_http_app(allowed_hosts=["*"])
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> str:
     """
