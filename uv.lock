@@ -372,12 +372,14 @@ source = { virtual = "." }
 dependencies = [
     { name = "arxiv" },
     { name = "mcp" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "arxiv", specifier = ">=2.4.0" },
     { name = "mcp", specifier = ">=1.25.0" },
+    { name = "uvicorn", specifier = ">=0.40.0" },
 ]
 
 [[package]]

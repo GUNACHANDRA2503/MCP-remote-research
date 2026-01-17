@@ -1,0 +1,77 @@
+{
+  "2105.00813v2": {
+    "title": "Transformers: \"The End of History\" for NLP?",
+    "authors": [
+      "Anton Chernyavskiy",
+      "Dmitry Ilvovsky",
+      "Preslav Nakov"
+    ],
+    "summary": "Recent advances in neural architectures, such as the Transformer, coupled with the emergence of large-scale pre-trained models such as BERT, have revolutionized the field of Natural Language Processing (NLP), pushing the state of the art for a number of NLP tasks. A rich family of variations of these models has been proposed, such as RoBERTa, ALBERT, and XLNet, but fundamentally, they all remain limited in their ability to model certain kinds of information, and they cannot cope with certain information sources, which was easy for pre-existing models. Thus, here we aim to shed light on some important theoretical limitations of pre-trained BERT-style models that are inherent in the general Transformer architecture. First, we demonstrate in practice on two general types of tasks -- segmentation and segment labeling -- and on four datasets that these limitations are indeed harmful and that addressing them, even in some very simple and naive ways, can yield sizable improvements over vanilla RoBERTa and XLNet models. Then, we offer a more general discussion on desiderata for future additions to the Transformer architecture that would increase its expressiveness, which we hope could help in the design of the next generation of deep NLP architectures.",
+    "pdf_url": "https://arxiv.org/pdf/2105.00813v2",
+    "published": "2021-04-09"
+  },
+  "2104.12405v2": {
+    "title": "A dissemination workshop for introducing young Italian students to NLP",
+    "authors": [
+      "Lucio Messina",
+      "Lucia Busso",
+      "Claudia Roberta Combei",
+      "Ludovica Pannitto",
+      "Alessio Miaschi",
+      "Gabriele Sarti",
+      "Malvina Nissim"
+    ],
+    "summary": "We describe and make available the game-based material developed for a laboratory run at several Italian science festivals to popularize NLP among young students.",
+    "pdf_url": "https://arxiv.org/pdf/2104.12405v2",
+    "published": "2021-04-26"
+  },
+  "2104.12422v2": {
+    "title": "Teaching NLP with Bracelets and Restaurant Menus: An Interactive Workshop for Italian Students",
+    "authors": [
+      "Ludovica Pannitto",
+      "Lucia Busso",
+      "Claudia Roberta Combei",
+      "Lucio Messina",
+      "Alessio Miaschi",
+      "Gabriele Sarti",
+      "Malvina Nissim"
+    ],
+    "summary": "Although Natural Language Processing (NLP) is at the core of many tools young people use in their everyday life, high school curricula (in Italy) do not include any computational linguistics education. This lack of exposure makes the use of such tools less responsible than it could be and makes choosing computational linguistics as a university degree unlikely. To raise awareness, curiosity, and longer-term interest in young people, we have developed an interactive workshop designed to illustrate the basic principles of NLP and computational linguistics to high school Italian students aged between 13 and 18 years. The workshop takes the form of a game in which participants play the role of machines needing to solve some of the most common problems a computer faces in understanding language: from voice recognition to Markov chains to syntactic parsing. Participants are guided through the workshop with the help of instructors, who present the activities and explain core concepts from computational linguistics. The workshop was presented at numerous outlets in Italy between 2019 and 2021, both face-to-face and online.",
+    "pdf_url": "https://arxiv.org/pdf/2104.12422v2",
+    "published": "2021-04-26"
+  },
+  "2412.08520v1": {
+    "title": "GR-NLP-TOOLKIT: An Open-Source NLP Toolkit for Modern Greek",
+    "authors": [
+      "Lefteris Loukas",
+      "Nikolaos Smyrnioudis",
+      "Chrysa Dikonomaki",
+      "Spyros Barbakos",
+      "Anastasios Toumazatos",
+      "John Koutsikakis",
+      "Manolis Kyriakakis",
+      "Mary Georgiou",
+      "Stavros Vassos",
+      "John Pavlopoulos",
+      "Ion Androutsopoulos"
+    ],
+    "summary": "We present GR-NLP-TOOLKIT, an open-source natural language processing (NLP) toolkit developed specifically for modern Greek. The toolkit provides state-of-the-art performance in five core NLP tasks, namely part-of-speech tagging, morphological tagging, dependency parsing, named entity recognition, and Greeklishto-Greek transliteration. The toolkit is based on pre-trained Transformers, it is freely available, and can be easily installed in Python (pip install gr-nlp-toolkit). It is also accessible through a demonstration platform on HuggingFace, along with a publicly available API for non-commercial use. We discuss the functionality provided for each task, the underlying methods, experiments against comparable open-source toolkits, and future possible enhancements. The toolkit is available at: https://github.com/nlpaueb/gr-nlp-toolkit",
+    "pdf_url": "https://arxiv.org/pdf/2412.08520v1",
+    "published": "2024-12-11"
+  },
+  "2412.04784v2": {
+    "title": "NLP-ADBench: NLP Anomaly Detection Benchmark",
+    "authors": [
+      "Yuangang Li",
+      "Jiaqi Li",
+      "Zhuo Xiao",
+      "Tiankai Yang",
+      "Yi Nian",
+      "Xiyang Hu",
+      "Yue Zhao"
+    ],
+    "summary": "Anomaly detection (AD) is an important machine learning task with applications in fraud detection, content moderation, and user behavior analysis. However, AD is relatively understudied in a natural language processing (NLP) context, limiting its effectiveness in detecting harmful content, phishing attempts, and spam reviews. We introduce NLP-ADBench, the most comprehensive NLP anomaly detection (NLP-AD) benchmark to date, which includes eight curated datasets and 19 state-of-the-art algorithms. These span 3 end-to-end methods and 16 two-step approaches that adapt classical, non-AD methods to language embeddings from BERT and OpenAI. Our empirical results show that no single model dominates across all datasets, indicating a need for automated model selection. Moreover, two-step methods with transformer-based embeddings consistently outperform specialized end-to-end approaches, with OpenAI embeddings outperforming those of BERT. We release NLP-ADBench at https://github.com/USC-FORTIS/NLP-ADBench, providing a unified framework for NLP-AD and supporting future investigations.",
+    "pdf_url": "https://arxiv.org/pdf/2412.04784v2",
+    "published": "2024-12-06"
+  }
+}
