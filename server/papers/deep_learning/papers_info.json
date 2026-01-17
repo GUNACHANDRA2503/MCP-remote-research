@@ -1,0 +1,55 @@
+{
+  "2306.11113v2": {
+    "title": "Learn to Accumulate Evidence from All Training Samples: Theory and Practice",
+    "authors": [
+      "Deep Pandey",
+      "Qi Yu"
+    ],
+    "summary": "Evidential deep learning, built upon belief theory and subjective logic, offers a principled and computationally efficient way to turn a deterministic neural network uncertainty-aware. The resultant evidential models can quantify fine-grained uncertainty using the learned evidence. To ensure theoretically sound evidential models, the evidence needs to be non-negative, which requires special activation functions for model training and inference. This constraint often leads to inferior predictive performance compared to standard softmax models, making it challenging to extend them to many large-scale datasets. To unveil the real cause of this undesired behavior, we theoretically investigate evidential models and identify a fundamental limitation that explains the inferior performance: existing evidential activation functions create zero evidence regions, which prevent the model to learn from training samples falling into such regions. A deeper analysis of evidential activation functions based on our theoretical underpinning inspires the design of a novel regularizer that effectively alleviates this fundamental limitation. Extensive experiments over many challenging real-world datasets and settings confirm our theoretical findings and demonstrate the effectiveness of our proposed approach.",
+    "pdf_url": "https://arxiv.org/pdf/2306.11113v2",
+    "published": "2023-06-19"
+  },
+  "2105.04026v2": {
+    "title": "The Modern Mathematics of Deep Learning",
+    "authors": [
+      "Julius Berner",
+      "Philipp Grohs",
+      "Gitta Kutyniok",
+      "Philipp Petersen"
+    ],
+    "summary": "We describe the new field of mathematical analysis of deep learning. This field emerged around a list of research questions that were not answered within the classical framework of learning theory. These questions concern: the outstanding generalization power of overparametrized neural networks, the role of depth in deep architectures, the apparent absence of the curse of dimensionality, the surprisingly successful optimization performance despite the non-convexity of the problem, understanding what features are learned, why deep architectures perform exceptionally well in physical problems, and which fine aspects of an architecture affect the behavior of a learning task in which way. We present an overview of modern approaches that yield partial answers to these questions. For selected approaches, we describe the main ideas in more detail.",
+    "pdf_url": "https://arxiv.org/pdf/2105.04026v2",
+    "published": "2021-05-09"
+  },
+  "2301.00942v1": {
+    "title": "Deep Learning and Computational Physics (Lecture Notes)",
+    "authors": [
+      "Deep Ray",
+      "Orazio Pinti",
+      "Assad A. Oberai"
+    ],
+    "summary": "These notes were compiled as lecture notes for a course developed and taught at the University of the Southern California. They should be accessible to a typical engineering graduate student with a strong background in Applied Mathematics.\n  The main objective of these notes is to introduce a student who is familiar with concepts in linear algebra and partial differential equations to select topics in deep learning. These lecture notes exploit the strong connections between deep learning algorithms and the more conventional techniques of computational physics to achieve two goals. First, they use concepts from computational physics to develop an understanding of deep learning algorithms. Not surprisingly, many concepts in deep learning can be connected to similar concepts in computational physics, and one can utilize this connection to better understand these algorithms. Second, several novel deep learning algorithms can be used to solve challenging problems in computational physics. Thus, they offer someone who is interested in modeling a physical phenomena with a complementary set of tools.",
+    "pdf_url": "https://arxiv.org/pdf/2301.00942v1",
+    "published": "2023-01-03"
+  },
+  "1711.00146v1": {
+    "title": "A multitask deep learning model for real-time deployment in embedded systems",
+    "authors": [
+      "Miquel Martí",
+      "Atsuto Maki"
+    ],
+    "summary": "We propose an approach to Multitask Learning (MTL) to make deep learning models faster and lighter for applications in which multiple tasks need to be solved simultaneously, which is particularly useful in embedded, real-time systems. We develop a multitask model for both Object Detection and Semantic Segmentation and analyze the challenges that appear during its training. Our multitask network is 1.6x faster, lighter and uses less memory than deploying the single-task models in parallel. We conclude that MTL has the potential to give superior performance in exchange of a more complex training process that introduces challenges not present in single-task models.",
+    "pdf_url": "https://arxiv.org/pdf/1711.00146v1",
+    "published": "2017-10-31"
+  },
+  "2012.06469v1": {
+    "title": "DILIE: Deep Internal Learning for Image Enhancement",
+    "authors": [
+      "Indra Deep Mastan",
+      "Shanmuganathan Raman"
+    ],
+    "summary": "We consider the generic deep image enhancement problem where an input image is transformed into a perceptually better-looking image. Recent methods for image enhancement consider the problem by performing style transfer and image restoration. The methods mostly fall into two categories: training data-based and training data-independent (deep internal learning methods). We perform image enhancement in the deep internal learning framework. Our Deep Internal Learning for Image Enhancement framework enhances content features and style features and uses contextual content loss for preserving image context in the enhanced image. We show results on both hazy and noisy image enhancement. To validate the results, we use structure similarity and perceptual error, which is efficient in measuring the unrealistic deformation present in the images. We show that the proposed framework outperforms the relevant state-of-the-art works for image enhancement.",
+    "pdf_url": "https://arxiv.org/pdf/2012.06469v1",
+    "published": "2020-12-11"
+  }
+}

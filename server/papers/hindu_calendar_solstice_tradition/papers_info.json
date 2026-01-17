@@ -1,0 +1,26 @@
+{
+  "2111.03441v1": {
+    "title": "Natural Time-Series Analysis and Vedic Hindu Calendar System",
+    "authors": [
+      "Neeraj Dhanraj Bokde"
+    ],
+    "summary": "Worldwide, calendars are classified into three categories, solar, lunar, and lunisolar, based on motions of Sun, Moon, and both, respectively. Being lunisolar, the Vedic Hindu calendars are capable of considering both solar and lunar activities. Therefore, these calendars can have potentially an upper hand over solar and lunar calendars. Several natural activities on the earth are due to the influences of the Sun and Moon, and the Hindu calendars are able to observe these patterns. Time series analysis plays a very crucial role in day-to-day applications and is one of the major components in the field of data science. The modern computations (including time series analysis) are performed with the Gregorian (solar) calendars. In this paper, the potential of the Hindu calendar is discussed from the time series analysis point of view. Some logical and experimental comments are discussed in this paper to motivate to dig further possibilities in the domain.",
+    "pdf_url": "https://arxiv.org/pdf/2111.03441v1",
+    "published": "2021-10-22"
+  },
+  "2509.04432v3": {
+    "title": "Can Language Models Handle a Non-Gregorian Calendar? The Case of the Japanese wareki",
+    "authors": [
+      "Mutsumi Sasaki",
+      "Go Kamoda",
+      "Ryosuke Takahashi",
+      "Kosuke Sato",
+      "Kentaro Inui",
+      "Keisuke Sakaguchi",
+      "Benjamin Heinzerling"
+    ],
+    "summary": "Temporal reasoning and knowledge are essential capabilities for language models (LMs). While much prior work has analyzed and improved temporal reasoning in LMs, most studies have focused solely on the Gregorian calendar. However, many non-Gregorian systems, such as the Japanese, Hijri, and Hebrew calendars, are in active use and reflect culturally grounded conceptions of time. If and how well current LMs can accurately handle such non-Gregorian calendars has not been evaluated so far. Here, we present a systematic evaluation of how well language models handle one such non-Gregorian system: the Japanese wareki. We create datasets that require temporal knowledge and reasoning in using wareki dates. Evaluating open and closed LMs, we find that some models can perform calendar conversions, but GPT-4o, Deepseek V3, and even Japanese-centric models struggle with Japanese calendar arithmetic and knowledge involving wareki dates. Error analysis suggests corpus frequency of Japanese calendar expressions and a Gregorian bias in the model's knowledge as possible explanations. Our results show the importance of developing LMs that are better equipped for culture-specific tasks such as calendar understanding.",
+    "pdf_url": "https://arxiv.org/pdf/2509.04432v3",
+    "published": "2025-09-04"
+  }
+}

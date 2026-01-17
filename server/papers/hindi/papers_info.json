@@ -1,0 +1,57 @@
+{
+  "1710.02855v2": {
+    "title": "The IIT Bombay English-Hindi Parallel Corpus",
+    "authors": [
+      "Anoop Kunchukuttan",
+      "Pratik Mehta",
+      "Pushpak Bhattacharyya"
+    ],
+    "summary": "We present the IIT Bombay English-Hindi Parallel Corpus. The corpus is a compilation of parallel corpora previously available in the public domain as well as new parallel corpora we collected. The corpus contains 1.49 million parallel segments, of which 694k segments were not previously available in the public domain. The corpus has been pre-processed for machine translation, and we report baseline phrase-based SMT and NMT translation results on this corpus. This corpus has been used in two editions of shared tasks at the Workshop on Asian Language Translation (2016 and 2017). The corpus is freely available for non-commercial research. To the best of our knowledge, this is the largest publicly available English-Hindi parallel corpus.",
+    "pdf_url": "https://arxiv.org/pdf/1710.02855v2",
+    "published": "2017-10-08"
+  },
+  "0910.1868v1": {
+    "title": "Evaluation of Hindi to Punjabi Machine Translation System",
+    "authors": [
+      "Vishal Goyal",
+      "Gurpreet Singh Lehal"
+    ],
+    "summary": "Machine Translation in India is relatively young. The earliest efforts date from the late 80s and early 90s. The success of every system is judged from its evaluation experimental results. Number of machine translation systems has been started for development but to the best of author knowledge, no high quality system has been completed which can be used in real applications. Recently, Punjabi University, Patiala, India has developed Punjabi to Hindi Machine translation system with high accuracy of about 92%. Both the systems i.e. system under question and developed system are between same closely related languages. Thus, this paper presents the evaluation results of Hindi to Punjabi machine translation system. It makes sense to use same evaluation criteria as that of Punjabi to Hindi Punjabi Machine Translation System. After evaluation, the accuracy of the system is found to be about 95%.",
+    "pdf_url": "https://arxiv.org/pdf/0910.1868v1",
+    "published": "2009-10-09"
+  },
+  "0909.2379v1": {
+    "title": "Implementation of Rule Based Algorithm for Sandhi-Vicheda Of Compound Hindi Words",
+    "authors": [
+      "Priyanka Gupta",
+      "Vishal Goyal"
+    ],
+    "summary": "Sandhi means to join two or more words to coin new word. Sandhi literally means `putting together' or combining (of sounds), It denotes all combinatory sound-changes effected (spontaneously) for ease of pronunciation. Sandhi-vicheda describes [5] the process by which one letter (whether single or cojoined) is broken to form two words. Part of the broken letter remains as the last letter of the first word and part of the letter forms the first letter of the next letter. Sandhi- Vicheda is an easy and interesting way that can give entirely new dimension that add new way to traditional approach to Hindi Teaching. In this paper using the Rule based algorithm we have reported an accuracy of 60-80% depending upon the number of rules to be implemented.",
+    "pdf_url": "https://arxiv.org/pdf/0909.2379v1",
+    "published": "2009-09-12"
+  },
+  "2408.09437v1": {
+    "title": "Hindi-BEIR : A Large Scale Retrieval Benchmark in Hindi",
+    "authors": [
+      "Arkadeep Acharya",
+      "Rudra Murthy",
+      "Vishwajeet Kumar",
+      "Jaydeep Sen"
+    ],
+    "summary": "Given the large number of Hindi speakers worldwide, there is a pressing need for robust and efficient information retrieval systems for Hindi. Despite ongoing research, there is a lack of comprehensive benchmark for evaluating retrieval models in Hindi. To address this gap, we introduce the Hindi version of the BEIR benchmark, which includes a subset of English BEIR datasets translated to Hindi, existing Hindi retrieval datasets, and synthetically created datasets for retrieval. The benchmark is comprised of $15$ datasets spanning across $8$ distinct tasks. We evaluate state-of-the-art multilingual retrieval models on this benchmark to identify task and domain-specific challenges and their impact on retrieval performance. By releasing this benchmark and a set of relevant baselines, we enable researchers to understand the limitations and capabilities of current Hindi retrieval models, promoting advancements in this critical area. The datasets from Hindi-BEIR are publicly available.",
+    "pdf_url": "https://arxiv.org/pdf/2408.09437v1",
+    "published": "2024-08-18"
+  },
+  "2409.05401v3": {
+    "title": "Benchmarking and Building Zero-Shot Hindi Retrieval Model with Hindi-BEIR and NLLB-E5",
+    "authors": [
+      "Arkadeep Acharya",
+      "Rudra Murthy",
+      "Vishwajeet Kumar",
+      "Jaydeep Sen"
+    ],
+    "summary": "Given the large number of Hindi speakers worldwide, there is a pressing need for robust and efficient information retrieval systems for Hindi. Despite ongoing research, comprehensive benchmarks for evaluating retrieval models in Hindi are lacking. To address this gap, we introduce the Hindi-BEIR benchmark, comprising 15 datasets across seven distinct tasks. We evaluate state-of-the-art multilingual retrieval models on the Hindi-BEIR benchmark, identifying task and domain-specific challenges that impact Hindi retrieval performance. Building on the insights from these results, we introduce NLLB-E5, a multilingual retrieval model that leverages a zero-shot approach to support Hindi without the need for Hindi training data. We believe our contributions, which include the release of the Hindi-BEIR benchmark and the NLLB-E5 model, will prove to be a valuable resource for researchers and promote advancements in multilingual retrieval models.",
+    "pdf_url": "https://arxiv.org/pdf/2409.05401v3",
+    "published": "2024-09-09"
+  }
+}

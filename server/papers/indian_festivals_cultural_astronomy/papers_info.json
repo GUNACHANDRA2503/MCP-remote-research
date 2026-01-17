@@ -1,0 +1,39 @@
+{
+  "2501.04333v1": {
+    "title": "Gravitational physics in the context of Indian astronomy: A vision document",
+    "authors": [
+      "P. Ajith",
+      "K. G. Arun",
+      "Sukanta Bose",
+      "Sumanta Chakraborty",
+      "Shantanu Desai",
+      "A. Gopakumar",
+      "Sanved Kolekar",
+      "Rajesh Nayak",
+      "Archana Pai",
+      "Sudipta Sarkar",
+      "Jasjeet Singh Bagla",
+      "Patrick Das Gupta",
+      "Rahul Kashyap",
+      "Prashant Kocherlakota",
+      "Prayush Kumar",
+      "Banibrata Mukhopadhyay"
+    ],
+    "summary": "Contributions from the Indian gravity community have played a significant role in shaping several branches of astronomy and astrophysics. This document reviews some of the most important contributions and presents a vision for gravity research in the context of astronomy \\& astrophysics in India. This is an expanded version of one of the chapters in the recently released Vision Document of the Astronomical Society of India.",
+    "pdf_url": "https://arxiv.org/pdf/2501.04333v1",
+    "published": "2025-01-08"
+  },
+  "1904.05264v1": {
+    "title": "Egocentric Visitors Localization in Cultural Sites",
+    "authors": [
+      "Francesco Ragusa",
+      "Antonino Furnari",
+      "Sebastiano Battiato",
+      "Giovanni Signorello",
+      "Giovanni Maria Farinella"
+    ],
+    "summary": "We consider the problem of localizing visitors in a cultural site from egocentric (first person) images. Localization information can be useful both to assist the user during his visit (e.g., by suggesting where to go and what to see next) and to provide behavioral information to the manager of the cultural site (e.g., how much time has been spent by visitors at a given location? What has been liked most?). To tackle the problem, we collected a large dataset of egocentric videos using two cameras: a head-mounted HoloLens device and a chest-mounted GoPro. Each frame has been labeled according to the location of the visitor and to what he was looking at. The dataset is freely available in order to encourage research in this domain. The dataset is complemented with baseline experiments performed considering a state-of-the-art method for location-based temporal segmentation of egocentric videos. Experiments show that compelling results can be achieved to extract useful information for both the visitor and the site-manager.",
+    "pdf_url": "https://arxiv.org/pdf/1904.05264v1",
+    "published": "2019-04-10"
+  }
+}

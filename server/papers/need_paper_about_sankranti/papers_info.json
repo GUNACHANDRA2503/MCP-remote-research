@@ -1,0 +1,70 @@
+{
+  "cond-mat/0309395v2": {
+    "title": "This paper has been withdrawn",
+    "authors": [
+      "This paper has been withdrawn"
+    ],
+    "summary": "This paper has been withdrawn",
+    "pdf_url": "https://arxiv.org/pdf/cond-mat/0309395v2",
+    "published": "2003-09-17"
+  },
+  "1410.4506v1": {
+    "title": "Spectroscopic Needs for Calibration of LSST Photometric Redshifts",
+    "authors": [
+      "Samuel J. Schmidt",
+      "Jeffrey A. Newman",
+      "Alexandra Abate",
+      "the Spectroscopic Needs White Paper Team"
+    ],
+    "summary": "This white paper summarizes the conclusions of the Snowmass White Paper \"Spectroscopic Needs for Imaging Dark Energy Experiments\" (arXiv:1309.5384) which are relevant to the calibration of LSST photometric redshifts; i.e., the accurate characterization of biases and uncertainties in photo-z's. Any significant miscalibration will lead to systematic errors in photo-z's, impacting nearly all extragalactic science with LSST. As existing deep redshift samples have failed to yield highly-secure redshifts for a systematic 20%-60% of their targets, it is a strong possibility that future deep spectroscopic samples will not solve the calibration problem on their own. The best options in this scenario are provided by cross-correlation methods that utilize clustering with objects from spectroscopic surveys (which need not be fully representative) to trace the redshift distribution of the full sample. For spectroscopy, the eBOSS survey would enable a basic calibration of LSST photometric redshifts, while the expected LSST-DESI overlap would be more than sufficient for an accurate calibration at z>0.2. A DESI survey of nearby galaxies conducted in bright time would enable accurate calibration down to z~0. The expanded areal coverage provided by the transfer of the DESI instrument (or duplication of it at the Blanco Telescope) would enable the best possible calibration from cross-correlations, in addition to other science gains.",
+    "pdf_url": "https://arxiv.org/pdf/1410.4506v1",
+    "published": "2014-10-16"
+  },
+  "1410.4498v1": {
+    "title": "Spectroscopic Needs for Training of LSST Photometric Redshifts",
+    "authors": [
+      "Alexandra Abate",
+      "Jeffrey A. Newman",
+      "Samuel J. Schmidt",
+      "the Spectroscopic Needs White Paper team"
+    ],
+    "summary": "This white paper summarizes those conclusions of the Snowmass White Paper \"Spectroscopic Needs for Imaging Dark Energy Experiments\" (arXiv:1309.5384) which are relevant to the training of LSST photometric redshifts; i.e., the use of spectroscopic redshifts to improve algorithms and reduce photo-z errors. The larger and more complete the available training set is, the smaller the RMS error in photo-z estimates should be, increasing LSST's constraining power. Among the better US-based options for this work are the proposed MANIFEST fiber feed for the Giant Magellan Telescope or (with lower survey speed) the WFOS spectrograph on the Thirty Meter Telescope (TMT). Due to its larger field of view and higher multiplexing, the PFS spectrograph on Subaru would be able to obtain a baseline training sample faster than TMT; comparable performance could be achieved with a highly-multiplexed spectrograph on Gemini with at least a 20 arcmin diameter field of view.",
+    "pdf_url": "https://arxiv.org/pdf/1410.4498v1",
+    "published": "2014-10-16"
+  },
+  "hep-ph/0512341v2": {
+    "title": "Not satisfied about the analysis",
+    "authors": [
+      "A. N"
+    ],
+    "summary": "The authors are not satisfied about the analysis.",
+    "pdf_url": "https://arxiv.org/pdf/hep-ph/0512341v2",
+    "published": "2005-12-27"
+  },
+  "2203.09544v1": {
+    "title": "Revisiting the Solar Research Cyberinfrastructure Needs: A White Paper of Findings and Recommendations",
+    "authors": [
+      "Gelu Nita",
+      "Azim Ahmadzadeh",
+      "Serena Criscuoli",
+      "Alisdair Davey",
+      "Dale Gary",
+      "Manolis Georgoulis",
+      "Neal Hurlburt",
+      "Irina Kitiashvili",
+      "Dustin Kempton",
+      "Alexander Kosovichev",
+      "Piet Martens",
+      "Ryan McGranaghan",
+      "Vincent Oria",
+      "Kevin Reardon",
+      "Viacheslav Sadykov",
+      "Ryan Timmons",
+      "Haimin Wang",
+      "Jason T. L. Wang"
+    ],
+    "summary": "Solar and Heliosphere physics are areas of remarkable data-driven discoveries. Recent advances in high-cadence, high-resolution multiwavelength observations, growing amounts of data from realistic modeling, and operational needs for uninterrupted science-quality data coverage generate the demand for a solar metadata standardization and overall healthy data infrastructure. This white paper is prepared as an effort of the working group \"Uniform Semantics and Syntax of Solar Observations and Events\" created within the \"Towards Integration of Heliophysics Data, Modeling, and Analysis Tools\" EarthCube Research Coordination Network (@HDMIEC RCN), with primary objectives to discuss current advances and identify future needs for the solar research cyberinfrastructure. The white paper summarizes presentations and discussions held during the special working group session at the EarthCube Annual Meeting on June 19th, 2020, as well as community contribution gathered during a series of preceding workshops and subsequent RCN working group sessions. The authors provide examples of the current standing of the solar research cyberinfrastructure, and describe the problems related to current data handling approaches. The list of the top-level recommendations agreed by the authors of the current white paper is presented at the beginning of the paper.",
+    "pdf_url": "https://arxiv.org/pdf/2203.09544v1",
+    "published": "2022-03-17"
+  }
+}

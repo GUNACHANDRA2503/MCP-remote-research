@@ -1,0 +1,11 @@
+[project]
+name = "mcp-hands-on"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "arxiv>=2.4.0",
+    "mcp>=1.25.0",
+]
+ 
