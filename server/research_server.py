@@ -6,10 +6,12 @@ import sys
 import os
 import uvicorn
 
+
 logging.basicConfig(level=logging.INFO, stream=sys.stderr)
 
 mcp = FastMCP("research_server")
 
+app = mcp.streamable_http_app()
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> str:
     """
@@ -29,14 +31,20 @@ def search_papers(topic: str, max_results: int = 5) -> str:
     PAPER_DIR = Path(__file__).resolve().parent / "papers"
     os.makedirs(PAPER_DIR, exist_ok=True)
 
-    client = arxiv.Client()
-    search = arxiv.Search(
-        query=topic,
-        max_results=max_results,
-        sort_by=arxiv.SortCriterion.Relevance
-    )
-
-    papers = client.results(search)
+    try:
+        client = arxiv.Client()
+        search = arxiv.Search(
+            query=topic,
+            max_results=max_results,
+            sort_by=arxiv.SortCriterion.Relevance
+        )
+        papers = list(client.results(search))
+    except Exception as e:
+        logging.error(f"ArXiv API error: {e}")
+        return json.dumps({
+            "error": f"Failed to search ArXiv: {str(e)}",
+            "topic": topic
+        })
     
     # Create directory for this topic
     topic_dir = topic.lower().replace(" ", "_") 
@@ -74,8 +82,11 @@ def search_papers(topic: str, max_results: int = 5) -> str:
         })
 
     # Save updated papers info
-    with open(file_path, "w", encoding="utf-8") as json_file:
-        json.dump(papers_info, json_file, indent=2, ensure_ascii=False)
+    try:
+        with open(file_path, "w", encoding="utf-8") as json_file:
+            json.dump(papers_info, json_file, indent=2, ensure_ascii=False)
+    except Exception as e:
+        logging.error(f"Failed to save papers: {e}")
 
     logging.info(f"Found {len(paper_summaries)} papers for topic '{topic}'")
     
@@ -180,13 +191,18 @@ def get_papers_in_topic(topic: str) -> str:
 
         content = f"# Papers in Topic: {topic}\n\n"
         for paper_id, paper_info in papers_info.items():
-            content += f"## {paper_info['title']}\n"
+            title = paper_info.get('title', 'Unknown Title')
+            authors = paper_info.get('authors', [])
+            published = paper_info.get('published', 'Unknown Date')
+            pdf_url = paper_info.get('pdf_url', '#')
+            summary = paper_info.get('summary', 'No summary available')
+
+            content += f"## {title}\n"
             content += f"- **Paper ID**: {paper_id}\n"
-            content += f"- **Authors**: {', '.join(paper_info['authors'])}\n"
-            content += f"- **Published**: {paper_info['published']}\n"
-            content += f"- **PDF URL**: [{paper_info['pdf_url']}]({paper_info['pdf_url']})\n\n"
-            content += f"### Summary\n{paper_info['summary'][:500]}...\n\n"
-            content += "---\n\n"
+            content += f"- **Authors**: {', '.join(authors) if authors else 'Unknown'}\n"
+            content += f"- **Published**: {published}\n"
+            content += f"- **PDF URL**: [{pdf_url}]({pdf_url})\n\n"
+            content += f"### Summary\n{summary[:500]}...\n\n"
         return content
 
     except (FileNotFoundError, json.JSONDecodeError) as e:
@@ -218,16 +234,6 @@ def get_search_prompt(topic:str, num_papers:int = 5) -> str:
     Please present both detailed information about each paper and a high-level synthesis of the research landscape in {topic}."""
 
 if __name__ == "__main__":
-    # import os
-    # port = int(os.getenv("PORT", 8000))
-    # host = os.getenv("HOST", "0.0.0.0")
-    # mcp.run(transport = "sse")
-
-    port = int(os.environ.get("PORT", 8000))
-
-    uvicorn.run(
-        mcp.app,
-        host="0.0.0.0",
-        port=port,
-        log_level="info",
-    )
+    port = int(os.getenv("PORT", 8001))
+    host = os.getenv("HOST", "0.0.0.0")
+    uvicorn.run(app, host=host, port=port)

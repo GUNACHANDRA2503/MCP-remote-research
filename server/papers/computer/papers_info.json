@@ -18,5 +18,38 @@
     "summary": "The recently initiated approach called computability logic is a formal theory of interactive computation. See a comprehensive online source on the subject at http://www.cis.upenn.edu/~giorgi/cl.html . The present paper contains a soundness and completeness proof for the deductive system CL3 which axiomatizes the most basic first-order fragment of computability logic called the finite-depth, elementary-base fragment. Among the potential application areas for this result are the theory of interactive computation, constructive applied theories, knowledgebase systems, systems for resource-bound planning and action. This paper is self-contained as it reintroduces all relevant definitions as well as main motivations.",
     "pdf_url": "https://arxiv.org/pdf/cs/0407054v2",
     "published": "2004-07-21"
+  },
+  "1002.2409v1": {
+    "title": "Changing Neighbors k Secure Sum Protocol for Secure Multi Party Computation",
+    "authors": [
+      "Rashid Sheikh",
+      "Beerendra Kumar",
+      "Durgesh Kumar Mishra"
+    ],
+    "summary": "Secure sum computation of private data inputs is an important component of Secure Multi party Computation (SMC).In this paper we provide a protocol to compute the sum of individual data inputs with zero probability of data leakage. In our proposed protocol we break input of each party into number of segments and change the arrangement of the parties such that in each round of the computation the neighbors are changed. In this protocol it becomes impossible for semi honest parties to know the private data of some other party.",
+    "pdf_url": "https://arxiv.org/pdf/1002.2409v1",
+    "published": "2010-02-11"
+  },
+  "1003.1455v1": {
+    "title": "A Computational Algorithm based on Empirical Analysis, that Composes Sanskrit Poetry",
+    "authors": [
+      "Rama N.",
+      "Meenakshi Lakshmanan"
+    ],
+    "summary": "Poetry-writing in Sanskrit is riddled with problems for even those who know the language well. This is so because the rules that govern Sanskrit prosody are numerous and stringent. We propose a computational algorithm that converts prose given as E-text into poetry in accordance with the metrical rules of Sanskrit prosody, simultaneously taking care to ensure that sandhi or euphonic conjunction, which is compulsory in verse, is handled. The algorithm is considerably speeded up by a novel method of reducing the target search database. The algorithm further gives suggestions to the poet in case what he/she has given as the input prose is impossible to fit into any allowed metrical format. There is also an interactive component of the algorithm by which the algorithm interacts with the poet to resolve ambiguities. In addition, this unique work, which provides a solution to a problem that has never been addressed before, provides a simple yet effective speech recognition interface that would help the visually impaired dictate words in E-text, which is in turn versified by our Poetry Composer Engine.",
+    "pdf_url": "https://arxiv.org/pdf/1003.1455v1",
+    "published": "2010-03-07"
+  },
+  "2411.18199v3": {
+    "title": "Semantic Edge Computing and Semantic Communications in 6G Networks: A Unifying Survey and Research Challenges",
+    "authors": [
+      "Milin Zhang",
+      "Mohammad Abdi",
+      "Venkat R. Dasari",
+      "Francesco Restuccia"
+    ],
+    "summary": "Semantic Edge Computing (SEC) and Semantic Communications (SemComs) have been proposed as viable approaches to achieve real-time edge-enabled intelligence in sixth-generation (6G) wireless networks. On one hand, SemCom leverages the strength of Deep Neural Networks (DNNs) to encode and communicate the semantic information only, while making it robust to channel distortions by compensating for wireless effects. Ultimately, this leads to an improvement in the communication efficiency. On the other hand, SEC has leveraged distributed DNNs to divide the computation of a DNN across different devices based on their computational and networking constraints. Although significant progress has been made in both fields, the literature lacks a systematic view to connect both fields. In this work, we fulfill the current gap by unifying the SEC and SemCom fields. We summarize the research problems in these two fields and provide a comprehensive review of the state of the art with a focus on their technical strengths and challenges.",
+    "pdf_url": "https://arxiv.org/pdf/2411.18199v3",
+    "published": "2024-11-27"
   }
 }

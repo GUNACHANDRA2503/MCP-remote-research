@@ -2,7 +2,7 @@ services:
   - type: web
     name: mcp-research-server
     runtime: python
-    pythonVersion: 3.11
+    pythonVersion: 3.12
     buildCommand: pip install -r requirements.txt
     startCommand: python server/research_server.py
     envVars:
