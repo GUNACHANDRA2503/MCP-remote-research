@@ -238,7 +238,19 @@ def get_search_prompt(topic:str, num_papers:int = 5) -> str:
     
     Please present both detailed information about each paper and a high-level synthesis of the research landscape in {topic}."""
 
-app = mcp.streamable_http_app()
+# Get allowed hosts from environment or use default
+# For production on Render, RENDER_EXTERNAL_HOSTNAME is automatically set
+allowed_hosts = ["localhost", "127.0.0.1"]
+render_hostname = os.getenv("RENDER_EXTERNAL_HOSTNAME")
+if render_hostname:
+    allowed_hosts.append(render_hostname)
+    logging.info(f"✅ Added Render hostname to allowed hosts: {render_hostname}")
+else:
+    logging.warning("⚠️  RENDER_EXTERNAL_HOSTNAME not set - only localhost allowed")
+
+logging.info(f"Allowed hosts: {allowed_hosts}")
+
+app = mcp.streamable_http_app(allowed_hosts=allowed_hosts)
 
 # Add CORS middleware to handle browser requests
 app.add_middleware(
