@@ -6,6 +6,7 @@ import sys
 import os
 import uvicorn
 from starlette.middleware.cors import CORSMiddleware
+from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 LOG_LEVEL = os.getenv("LOG_LEVEL", "DEBUG").upper()
 
@@ -250,7 +251,14 @@ else:
 
 logging.info(f"Allowed hosts: {allowed_hosts}")
 
-app = mcp.streamable_http_app(allowed_hosts=allowed_hosts)
+# Create app WITHOUT allowed_hosts parameter (not supported by FastMCP)
+app = mcp.streamable_http_app()
+
+# Apply TrustedHostMiddleware to validate Host headers
+app.add_middleware(
+    TrustedHostMiddleware,
+    allowed_hosts=allowed_hosts
+)
 
 # Add CORS middleware to handle browser requests
 app.add_middleware(
