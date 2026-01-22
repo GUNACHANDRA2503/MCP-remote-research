@@ -5,10 +5,15 @@ import logging
 import sys
 import os
 import uvicorn
+from starlette.middleware.cors import CORSMiddleware
 
+LOG_LEVEL = os.getenv("LOG_LEVEL", "DEBUG").upper()
 
-logging.basicConfig(level=logging.INFO, stream=sys.stderr)
-
+logging.basicConfig(
+    level=LOG_LEVEL,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    stream=sys.stdout,   # IMPORTANT for Render
+)
 mcp = FastMCP("research_server")
 
 
@@ -233,8 +238,19 @@ def get_search_prompt(topic:str, num_papers:int = 5) -> str:
     
     Please present both detailed information about each paper and a high-level synthesis of the research landscape in {topic}."""
 
-app = mcp.sse_app()
+app = mcp.streamable_http_app()
+
+# Add CORS middleware to handle browser requests
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["*"],
+)
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8001))
-    host = os.getenv("HOST", "0.0.0.0")
+    host = os.getenv("HOST", "127.0.0.1") 
     uvicorn.run(app, host=host, port=port)

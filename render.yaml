@@ -6,9 +6,7 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: python server/research_server.py
     envVars:
-      - key: HOST
-        value: 0.0.0.0
-      - key: PORT
-        value: 8000
+      - key: LOG_LEVEL
+        value: INFO
     maxInstanceCount: 1
     numInstances: 1
