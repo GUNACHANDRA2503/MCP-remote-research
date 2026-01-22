@@ -7,13 +7,22 @@ import os
 import uvicorn
 from starlette.middleware.cors import CORSMiddleware
 
-LOG_LEVEL = os.getenv("LOG_LEVEL", "DEBUG").upper()
-
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+log_stream = sys.stderr if os.getenv("MCP_TRANSPORT", "stdio") == "stdio" else sys.stdout
 logging.basicConfig(
     level=LOG_LEVEL,
     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-    stream=sys.stdout,   # IMPORTANT for Render
+    stream=log_stream,
 )
+
+# Reduce noise from verbose libraries in stdio mode
+if os.getenv("MCP_TRANSPORT", "stdio") == "stdio":
+    logging.getLogger("mcp.server.lowlevel.server").setLevel(logging.WARNING)
+    logging.getLogger("mcp.server.fastmcp.resources.resource_manager").setLevel(logging.WARNING)
+    logging.getLogger("asyncio").setLevel(logging.WARNING)
+    logging.getLogger("urllib3.connectionpool").setLevel(logging.WARNING)
+    logging.getLogger("arxiv").setLevel(logging.WARNING)
+
 mcp = FastMCP("research_server")
 
 
@@ -244,15 +253,15 @@ allowed_hosts = ["localhost", "127.0.0.1"]
 render_hostname = os.getenv("RENDER_EXTERNAL_HOSTNAME")
 if render_hostname:
     allowed_hosts.append(render_hostname)
-    logging.info(f"✅ Added Render hostname to allowed hosts: {render_hostname}")
+    logging.info(f"[OK] Added Render hostname to allowed hosts: {render_hostname}")
 else:
-    logging.warning("⚠️  RENDER_EXTERNAL_HOSTNAME not set - only localhost allowed")
+    logging.warning("[WARN] RENDER_EXTERNAL_HOSTNAME not set - only localhost allowed")
 
 logging.info(f"Allowed hosts: {allowed_hosts}")
-logging.info(f"🔍 DEBUG - PORT env: {os.getenv('PORT')}, HOST env: {os.getenv('HOST')}")
-logging.info(f"🔍 DEBUG - RENDER_EXTERNAL_HOSTNAME: {os.getenv('RENDER_EXTERNAL_HOSTNAME')}")
-logging.info(f"🔍 DEBUG - RENDER_EXTERNAL_URL: {os.getenv('RENDER_EXTERNAL_URL')}")
-logging.info(f"🔍 DEBUG - All RENDER_* env vars: {[k for k in os.environ.keys() if k.startswith('RENDER')]}")
+logging.info(f"[DEBUG] PORT env: {os.getenv('PORT')}, HOST env: {os.getenv('HOST')}")
+logging.info(f"[DEBUG] RENDER_EXTERNAL_HOSTNAME: {os.getenv('RENDER_EXTERNAL_HOSTNAME')}")
+logging.info(f"[DEBUG] RENDER_EXTERNAL_URL: {os.getenv('RENDER_EXTERNAL_URL')}")
+logging.info(f"[DEBUG] All RENDER_* env vars: {[k for k in os.environ.keys() if k.startswith('RENDER')]}")
 
 # Patch MCP's internal host validation (it blocks even localhost!)
 # This is necessary because MCP's transport_security blocks before our middleware
@@ -268,24 +277,24 @@ try:
             return True
         
         transport_security.check_host_header = patched_check_host_header
-        logging.info("🔓 Successfully patched MCP host validation")
+        logging.info("[OK] Successfully patched MCP host validation")
     else:
-        logging.warning("⚠️  MCP host validation function not found - may not need patching")
+        logging.warning("[WARN] MCP host validation function not found - may not need patching")
         # Try to list what's available
         available = [x for x in dir(transport_security) if not x.startswith('_') and 'host' in x.lower()]
         logging.warning(f"   Available host-related items: {available}")
 
 except Exception as e:
-    logging.warning(f"⚠️  Could not patch MCP host validation: {e}")
+    logging.warning(f"[WARN] Could not patch MCP host validation: {e}")
     logging.warning("   Server may reject requests from Render domain")
 
 # Create app - use original without wrapping (wrapping breaks MCP initialization)
-logging.info("🏗️  Creating MCP streamable_http_app...")
+logging.info("[INIT] Creating MCP streamable_http_app...")
 app = mcp.streamable_http_app()
-logging.info("✅ MCP app created successfully")
+logging.info("[OK] MCP app created successfully")
 
 # Add CORS middleware to handle browser requests
-logging.info("🔧 Adding CORS middleware...")
+logging.info("[INIT] Adding CORS middleware...")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -294,17 +303,25 @@ app.add_middleware(
     allow_headers=["*"],
     expose_headers=["*"],
 )
-logging.info("✅ CORS middleware added")
+logging.info("[OK] CORS middleware added")
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8001))
-    host = os.getenv("HOST", "0.0.0.0")
+    # Check transport mode - default to stdio for Cursor
+    transport_mode = os.getenv("MCP_TRANSPORT", "stdio")
     
-    logging.info("="*60)
-    logging.info("🚀 Starting MCP Server")
-    logging.info(f"   Host: {host}")
-    logging.info(f"   Port: {port}")
-    logging.info(f"   Environment: {'Render' if os.getenv('RENDER') else 'Local'}")
-    logging.info("="*60)
-    
-    uvicorn.run(app, host=host, port=port)
+    if transport_mode == "http" or os.getenv("RENDER"):
+        # HTTP mode for Render/remote deployment
+        port = int(os.getenv("PORT", 8001))
+        host = os.getenv("HOST", "0.0.0.0")
+        
+        logging.info("="*60)
+        logging.info("[START] MCP Server (HTTP)")
+        logging.info(f"   Host: {host}")
+        logging.info(f"   Port: {port}")
+        logging.info("="*60)
+        
+        uvicorn.run(app, host=host, port=port)
+    else:
+        # Stdio mode for Cursor
+        logging.info("[START] MCP Server (stdio mode for Cursor)")
+        mcp.run()

@@ -8,5 +8,7 @@ services:
     envVars:
       - key: LOG_LEVEL
         value: INFO
+      - key: MCP_TRANSPORT
+        value: http
     maxInstanceCount: 1
     numInstances: 1
