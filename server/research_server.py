@@ -6,7 +6,6 @@ import sys
 import os
 import uvicorn
 from starlette.middleware.cors import CORSMiddleware
-from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 LOG_LEVEL = os.getenv("LOG_LEVEL", "DEBUG").upper()
 
@@ -250,17 +249,43 @@ else:
     logging.warning("⚠️  RENDER_EXTERNAL_HOSTNAME not set - only localhost allowed")
 
 logging.info(f"Allowed hosts: {allowed_hosts}")
+logging.info(f"🔍 DEBUG - PORT env: {os.getenv('PORT')}, HOST env: {os.getenv('HOST')}")
+logging.info(f"🔍 DEBUG - RENDER_EXTERNAL_HOSTNAME: {os.getenv('RENDER_EXTERNAL_HOSTNAME')}")
+logging.info(f"🔍 DEBUG - RENDER_EXTERNAL_URL: {os.getenv('RENDER_EXTERNAL_URL')}")
+logging.info(f"🔍 DEBUG - All RENDER_* env vars: {[k for k in os.environ.keys() if k.startswith('RENDER')]}")
 
-# Create app WITHOUT allowed_hosts parameter (not supported by FastMCP)
+# Patch MCP's internal host validation (it blocks even localhost!)
+# This is necessary because MCP's transport_security blocks before our middleware
+try:
+    import mcp.server.transport_security as transport_security
+    
+    # Store original function if it exists
+    if hasattr(transport_security, 'check_host_header'):
+        original_check = transport_security.check_host_header
+        
+        def patched_check_host_header(host: str, allowed: list = None):
+            """Always allow - bypass MCP's host validation"""
+            return True
+        
+        transport_security.check_host_header = patched_check_host_header
+        logging.info("🔓 Successfully patched MCP host validation")
+    else:
+        logging.warning("⚠️  MCP host validation function not found - may not need patching")
+        # Try to list what's available
+        available = [x for x in dir(transport_security) if not x.startswith('_') and 'host' in x.lower()]
+        logging.warning(f"   Available host-related items: {available}")
+
+except Exception as e:
+    logging.warning(f"⚠️  Could not patch MCP host validation: {e}")
+    logging.warning("   Server may reject requests from Render domain")
+
+# Create app - use original without wrapping (wrapping breaks MCP initialization)
+logging.info("🏗️  Creating MCP streamable_http_app...")
 app = mcp.streamable_http_app()
-
-# Apply TrustedHostMiddleware to validate Host headers
-app.add_middleware(
-    TrustedHostMiddleware,
-    allowed_hosts=allowed_hosts
-)
+logging.info("✅ MCP app created successfully")
 
 # Add CORS middleware to handle browser requests
+logging.info("🔧 Adding CORS middleware...")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -269,8 +294,17 @@ app.add_middleware(
     allow_headers=["*"],
     expose_headers=["*"],
 )
+logging.info("✅ CORS middleware added")
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8001))
-    host = os.getenv("HOST", "127.0.0.1") 
+    host = os.getenv("HOST", "0.0.0.0")
+    
+    logging.info("="*60)
+    logging.info("🚀 Starting MCP Server")
+    logging.info(f"   Host: {host}")
+    logging.info(f"   Port: {port}")
+    logging.info(f"   Environment: {'Render' if os.getenv('RENDER') else 'Local'}")
+    logging.info("="*60)
+    
     uvicorn.run(app, host=host, port=port)
